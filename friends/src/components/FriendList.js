@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Loader from 'react-loader-spinner';
+import AddFriend from './AddFriend'
 
 // class FriendList extends React.Component {
 //   state = {
@@ -77,10 +78,12 @@ export default function FriendList(props) {
                 <p>Friend's Name: {friend.name}</p>
                 <p>Friend's Age: {friend.age}</p>
                 <p>Friend's Email: {friend.email}</p>
+
               </div>
             </>
           );
         })}
+        <AddFriend/>
       </div>
     );
 }

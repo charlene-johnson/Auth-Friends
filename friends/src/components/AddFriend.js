@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Button,
@@ -30,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function AddFriend() {
+export default function AddFriend(props) {
   const classes = useStyles();
   const [addFriend, setAddFriend] = useState({
     name: "",
@@ -50,6 +49,7 @@ export default function AddFriend() {
       .post("/api/friends", addFriend)
       .then((res) => {
         setAddFriend(res.data);
+        props.history.push("/friendlist")
       })
       .catch((err) => console.log(err));
   };
@@ -107,6 +107,7 @@ export default function AddFriend() {
                       color="secondary"
                     />
                     <Grid item className={classes.formGridItem} align="center">
+                      
                       <Button
                         variant="contained"
                         color="secondary"
@@ -115,6 +116,7 @@ export default function AddFriend() {
                       >
                         Add Friend
                       </Button>
+                     
                     </Grid>
                   </Grid>
                 </Grid>

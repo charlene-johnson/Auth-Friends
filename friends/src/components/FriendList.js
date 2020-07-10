@@ -69,16 +69,14 @@ export default function FriendList(props) {
             <>
               {props.fetchingData && (
                 <div className="key spinner">
-                  <Loader type="Puff" color="#204963" height="60" width="60" />
+                  <Loader type="Puff" color="#DEFCE0" height="60" width="60" />
                   <p>Loading Data</p>
                 </div>
               )}
-
               <div className='friends' key={key}>
                 <p>Friend's Name: {friend.name}</p>
                 <p>Friend's Age: {friend.age}</p>
                 <p>Friend's Email: {friend.email}</p>
-
               </div>
             </>
           );

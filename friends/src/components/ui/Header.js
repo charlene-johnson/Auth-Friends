@@ -1,0 +1,94 @@
+import React, {useState, useEffect} from 'react';
+import {
+    AppBar,
+    Toolbar,
+    useScrollTrigger,
+    Tab,
+    Tabs,
+    Typography
+}
+from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles';
+import {Link} from 'react-router-dom'
+
+function ElevationScroll(props) {
+    const { children } = props;
+  
+    const trigger = useScrollTrigger({
+      disableHysteresis: true,
+      threshold: 0,
+    });
+  
+    return React.cloneElement(children, {
+      elevation: trigger ? 4 : 0,
+    });
+  }
+
+  const useStyles = makeStyles((theme) => ({
+    toolbarMargin: {
+      ...theme.mixins.toolbar,
+      marginBottom: "2em"
+    },
+    logoContainer: {
+      padding: 0,
+      "&:hover": {
+        backgroundColor: "transparent",
+      },
+    },
+    tabContainer: {
+      marginLeft: "auto",
+    },
+    tab: {
+      ...theme.typography.tab,
+      minWidth: 10,
+      marginRight: "75px",
+    },
+  }));
+
+  export default function Header(props) {
+      const classes = useStyles();
+      
+      const [value, setValue] = useState(0);
+
+      const handleChange = (e, value) => {
+          setValue(value);
+      };
+      useEffect(() => {
+        switch (window.location.pathname) {
+          case "/login":
+            if (value !== 0) {
+              setValue(0);
+            }
+            break;
+          default:
+            break;
+        }
+      }, [value]);
+      return (
+        <React.Fragment>
+          <ElevationScroll>
+            <AppBar position="fixed">
+              <Toolbar disableGutters>
+                <Typography variant="h1" style={{fontFamily: "Pangolin"}}>
+                  Friends
+                </Typography>
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  className={classes.tabContainer}
+                >
+                  <Tab
+                    className={classes.tab}
+                    component={Link}
+                    to="/login"
+                    label="Login"
+                  />
+                </Tabs>
+              </Toolbar>
+            </AppBar>
+          </ElevationScroll>
+          <div className={classes.toolbarMargin} />
+        </React.Fragment>
+      );
+    }
+    

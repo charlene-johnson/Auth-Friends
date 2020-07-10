@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Loader from 'react-loader-spinner';
-import AddFriend from './AddFriend'
+import {Link} from 'react-router-dom'
 
 // class FriendList extends React.Component {
 //   state = {
@@ -81,7 +81,9 @@ export default function FriendList(props) {
             </>
           );
         })}
-        <AddFriend/>
+        <Link to={"/addfriend"}>
+        <button>Add Friend</button>
+        </Link>
       </div>
     );
 }

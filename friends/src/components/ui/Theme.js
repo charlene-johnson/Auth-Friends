@@ -1,5 +1,7 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
+const PangoFont ='Pangolin, cursive';
+
 const orange = "#FCE7DE";
 const yellow = "#FCF8DE";
 const green = "#DEFCE0";
@@ -24,15 +26,29 @@ export default createMuiTheme({
     },
     typography: {
         tab: {
-            fontFamily:'Pangolin',
+            fontFamily:PangoFont,
             textTransform: "none",
             fontSize: "1.5rem",
             color: purple
         },
         h1: {
-            fontFamily: 'Pangolin',
+            fontFamily: PangoFont,
             fontSize: '4rem',
             color: purple
+        },
+        h2: {
+            fontFamily: PangoFont
+        },
+        h3: {
+            fontFamily: PangoFont
+        },
+        h4: {
+
+        },
+        h5: {},
+        h6: {},
+        p: {
+            fontFamily: PangoFont
         }
     }
 })

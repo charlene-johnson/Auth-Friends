@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
 
-export default function Login () {
+
+export default function Login (props) {
 
     const [credentials, setCredentials] = useState({username: "", password: ""})
 
@@ -12,7 +14,13 @@ export default function Login () {
     };
     const login = e => {
         e.preventDefault();
-        
+        axiosWithAuth()
+        .post('http://localhost:5000/api/login', credentials)
+        .then(res => {
+            window.localStorage.setItem('token', res.data.payload)
+            props.history.push('/friendlist')
+        })
+        .catch(err => console.log(err))
     };
 
     return (

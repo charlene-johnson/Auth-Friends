@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-export function Login () {
+export default function Login () {
 
     const [credentials, setCredentials] = useState({username: "", password: ""})
 
@@ -12,6 +12,7 @@ export function Login () {
     };
     const login = e => {
         e.preventDefault();
+        
     };
 
     return (

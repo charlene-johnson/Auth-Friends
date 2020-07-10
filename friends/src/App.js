@@ -7,8 +7,6 @@ import Header from '../src/components/ui/Header';
 import {ThemeProvider} from '@material-ui/core/styles';
 import theme from '../src/components/ui/Theme';
 
-import "./App.css";
-
 function App() {
   return (
     <ThemeProvider theme={theme}>

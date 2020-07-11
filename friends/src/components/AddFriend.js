@@ -20,11 +20,15 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
       padding: '2em',
-      height: 350,
+      height: 390,
+      width: 300,
       color: theme.palette.common.purple
   },
   button: {
-    marginTop: '1em'
+    ...theme.typography.buttons,
+    marginTop: '1em',
+    fontSize: "1.5rem"
+    
   }
   
 }));

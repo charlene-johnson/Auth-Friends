@@ -24,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
       height: 250,
       color: theme.palette.common.purple
   },
+  button: {
+    ...theme.typography.buttons,
+    fontSize: "1.5rem",
+    marginTop: '1em'
+  }
   
 }));
 
@@ -97,7 +102,8 @@ export default function Login(props) {
                 </Grid>
               </Grid>
               <Grid item className={classes.formGridItem} align="center">
-                <Button variant="contained" color="secondary" onClick={login}>
+                <Button variant="contained" color="secondary" onClick={login}
+                className={classes.button}>
                   Login
                 </Button>
               </Grid>

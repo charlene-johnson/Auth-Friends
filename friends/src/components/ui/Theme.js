@@ -43,11 +43,22 @@ export default createMuiTheme({
             fontFamily: PangoFont
         },
         h4: {
+            fontFamily: PangoFont
+        },
+        h5: {
+            fontFamily: PangoFont
+        },
+        h6: {
 
         },
-        h5: {},
-        h6: {},
         p: {
+            fontFamily: PangoFont
+        },
+        buttons: {
+            fontFamily: PangoFont,
+            textTransform: "none",
+            color: blue
+        }, subtitle1: {
             fontFamily: PangoFont
         }
     }

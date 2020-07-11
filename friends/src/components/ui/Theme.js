@@ -2,26 +2,26 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const PangoFont ='Pangolin, cursive';
 
-const orange = "#FCE7DE";
-const yellow = "#FCF8DE";
-const green = "#DEFCE0";
-const blue = "#DEF2FC";
-const purple = "#F0DEFD" ;
+const lightestGreen = "#DCEEC8";
+const lightGreen = "#C5E2A5";
+const green = "#AED681";
+const darkGreen = "#9CCC65";
+const darkestGreen = "#8BC44A" ;
 
 export default createMuiTheme({
     palette: {
         common: {
-            orange: orange,
-            yellow: yellow,
+            lightestGreen: lightestGreen,
+            lightGreen: lightGreen,
             green: green,
-            blue: blue,
-            purple: purple
+            darkGreen: darkGreen,
+            darkestGreen: darkestGreen
         },
         primary: {
-            main: green
+            main: lightGreen
         },
         secondary: {
-            main: purple
+            main: green
         },
     },
     typography: {
@@ -29,12 +29,12 @@ export default createMuiTheme({
             fontFamily:PangoFont,
             textTransform: "none",
             fontSize: "1.5rem",
-            color: purple
+            color: darkGreen
         },
         h1: {
             fontFamily: PangoFont,
             fontSize: '4rem',
-            color: purple
+            color: darkGreen
         },
         h2: {
             fontFamily: PangoFont
@@ -57,7 +57,7 @@ export default createMuiTheme({
         buttons: {
             fontFamily: PangoFont,
             textTransform: "none",
-            color: blue
+            color: darkestGreen
         }, subtitle1: {
             fontFamily: PangoFont
         }

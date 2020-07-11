@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { BrowserRouter as Router, Route,  Switch } from "react-router-dom";
+import Welcome from './components/Welcome'
 import Login from "./components/Login";
 import FriendList from './components/FriendList';
 import AddFriend from './components/AddFriend'
@@ -16,6 +17,7 @@ function App() {
     <Router>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         <Switch>
+          <Route exact path ='/' component={Welcome}/>
           <Route exact path="/login">
             <Login setLoggedIn={setLoggedIn}/>
           </Route>

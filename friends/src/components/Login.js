@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useHistory} from 'react-router-dom';
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -34,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login(props) {
   const classes = useStyles();
+  const history = useHistory();
 
   const [credentials, setCredentials] = useState({
     username: "",
@@ -52,7 +54,8 @@ export default function Login(props) {
       .post("http://localhost:5000/api/login", credentials)
       .then((res) => {
         window.localStorage.setItem("token", res.data.payload);
-        props.history.push("/friendlist");
+        props.setLoggedIn(true);
+        history.push("/friendlist");
       })
       .catch((err) => console.log(err));
   };

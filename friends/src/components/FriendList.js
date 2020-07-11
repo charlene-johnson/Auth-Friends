@@ -62,18 +62,14 @@ const useStyles = makeStyles((theme) => ({
   button: {
     ...theme.typography.buttons,
     fontSize: "1.5rem",
+    marginTop: '1em'
   },
   heading: {
     color: theme.palette.common.orange,
   },
   root: {
-    minWidth: 275,
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
+    minWidth: 500,
+    height: 150,
   },
 }));
 

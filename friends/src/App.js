@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Route,  Switch } from "react-router-dom";
 import Login from "./components/Login";
 import FriendList from './components/FriendList';
@@ -10,15 +10,17 @@ import theme from '../src/components/ui/Theme';
 import './App.css'
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <ThemeProvider theme={theme}>
     <Router>
-      <Header/>
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         <Switch>
-          <Route path="/login" component={Login} />
+          <Route exact path="/login">
+            <Login setLoggedIn={setLoggedIn}/>
+          </Route>
           <PrivateRoute exact path='/friendlist' component={FriendList} />
           <PrivateRoute exact path='/addfriend' component={AddFriend}/>
-          <Route component={Login} />
         </Switch>
     </Router>
     </ThemeProvider>

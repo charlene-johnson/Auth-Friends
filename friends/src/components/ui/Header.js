@@ -6,6 +6,7 @@ import {
   Tab,
   Tabs,
   Typography,
+  Button
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
@@ -29,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "2em",
   },
   logoContainer: {
-    padding: 0,
+    padding: 0, 
+    textTransform: "none",
     "&:hover": {
       backgroundColor: "transparent",
     },
@@ -69,10 +71,16 @@ export default function Header({loggedIn, setLoggedIn}) {
       <ElevationScroll>
         <AppBar position="fixed">
           <Toolbar disableGutters>
+              <Button
+                component={Link}
+                to='/'
+                disableRipple
+                onClick={() =>setValue(0)}
+                className={classes.logoContainer}>
             <Typography variant="h1" style={{ fontFamily: "Pangolin" }}>
               Friends
             </Typography>
-            
+            </Button>
             <Tabs
               value={value}
               onChange={handleChange}

@@ -59,12 +59,15 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1em",
   },
   heading: {
-    color: theme.palette.common.orange,
+    color: theme.palette.common.darkGreen,
   },
   root: {
     minWidth: 500,
     height: 150,
   },
+  friends: {
+    color: theme.palette.common.darkestGreen
+  }
 }));
 
 export default function FriendList(props) {
@@ -102,11 +105,11 @@ export default function FriendList(props) {
                 <Card className={classes.root}>
                   <CardContent>
                     <div className="friends" key={key}>
-                      <Typography variant="h4"> {friend.name}</Typography>
-                      <Typography variant="subtitle1">
+                      <Typography variant="h4" className={classes.friends}> {friend.name}</Typography>
+                      <Typography variant="subtitle1" className={classes.friends}>
                         Friend's Age: {friend.age}
                       </Typography>
-                      <Typography variant="subtitle1">
+                      <Typography variant="subtitle1" className={classes.friends}>
                         Friend's Email: {friend.email}
                       </Typography>
                     </div>

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "2em",
     height: 390,
     width: 300,
-    color: theme.palette.common.purple,
+    color: theme.palette.common.darkGreen,
   },
   button: {
     ...theme.typography.buttons,

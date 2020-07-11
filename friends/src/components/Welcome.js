@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "transparent",
     },
   },
+  subtitle: {
+      color: theme.palette.common.darkestGreen
+  }
 }));
 export default function Welcome() {
   const classes = useStyles();
@@ -32,7 +35,7 @@ export default function Welcome() {
         >
           <img src={Kitty} alt="My drawn Picture" className={classes.pic} />
         </Button>
-        <Typography variant="subtitle1">
+        <Typography variant="subtitle1" className={classes.subtitle}>
           Click the Picture to go to Login, or go to the Friend List if you're
           already logged in
         </Typography>

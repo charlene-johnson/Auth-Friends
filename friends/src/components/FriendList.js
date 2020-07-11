@@ -107,10 +107,13 @@ export default function FriendList(props) {
                     <div className="friends" key={key}>
                       <Typography variant="h4" className={classes.friends}> {friend.name}</Typography>
                       <Typography variant="subtitle1" className={classes.friends}>
-                        Friend's Age: {friend.age}
+                        Friend's Race: {friend.race}
                       </Typography>
                       <Typography variant="subtitle1" className={classes.friends}>
-                        Friend's Email: {friend.email}
+                        Friend's Favorite Weapons: {friend.weapon}
+                      </Typography>
+                      <Typography variant="subtitle1" className={classes.friends}>
+                        Friend's Occupation: {friend.occupation}
                       </Typography>
                     </div>
                   </CardContent>

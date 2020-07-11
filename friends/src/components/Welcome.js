@@ -33,7 +33,7 @@ export default function Welcome() {
           disableRipple
           className={classes.logoContainer}
         >
-          <img src={Kitty} alt="My drawn Picture" className={classes.pic} />
+          <img src={Kitty} alt="Me" className={classes.pic} />
         </Button>
         <Typography variant="subtitle1" className={classes.subtitle}>
           Click the Picture to go to Login, or go to the Friend List if you're

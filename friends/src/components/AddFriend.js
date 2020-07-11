@@ -16,12 +16,15 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 120,
   },
   formGridItem: {
-    margin: ".5em",
+    margin: "1em",
+  },
+  textField: {
+    width: 250
   },
   paper: {
     padding: "2em",
     height: 390,
-    width: 300,
+    width: 600,
     color: theme.palette.common.darkGreen,
   },
   button: {
@@ -35,8 +38,9 @@ export default function AddFriend(props) {
   const classes = useStyles();
   const [addFriend, setAddFriend] = useState({
     name: "",
-    age: "",
-    email: "",
+    race: "",
+    weapon: "",
+    occupation: "",
   });
   const handleChanges = (e) => {
     setAddFriend({
@@ -46,7 +50,7 @@ export default function AddFriend(props) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAddFriend({ name: "", age: "", email: "" });
+    setAddFriend({ name: "", race: "", weapon: "", occupation: "" });
     axiosWithAuth()
       .post("/api/friends", addFriend)
       .then((res) => {
@@ -60,74 +64,95 @@ export default function AddFriend(props) {
       <Grid container direction="column" justify="center" alignItems="center">
         <Paper elevation={10} className={classes.paper}>
           <Grid item className={classes.formGridItem}>
-            <Grid item className={classes.formGridItem}>
-              <Typography align="center" variant="h3">
-                Add Friend
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="center"
+            <Typography align="center" variant="h3">
+              Add Friend
+            </Typography>
+          </Grid>
+          <Grid
+            container
+            direction="column"
+            justify="center"
+            alignItems="center"
+          >
+            <FormControl
+              className={classes.formControl}
+              onSubmit={handleSubmit}
             >
-              <FormControl
-                className={classes.formControl}
-                onSubmit={handleSubmit}
+              <Grid
+                item
+                container
+                justify="center"
+                alignItems="center"
+                direction="row"
               >
-                <Grid
-                  item
-                  container
-                  justify="center"
-                  alignItems="center"
-                  direction="column"
-                >
-                  <Grid item className={classes.formGridItem}>
-                    <TextField
-                      type="text"
-                      name="name"
-                      value={addFriend.name}
-                      onChange={handleChanges}
-                      label="Friend's Name"
-                      variant="outlined"
-                      color="secondary"
-                    />
-                  </Grid>
-                  <Grid item className={classes.formGridItem}>
-                    <TextField
-                      type="text"
-                      name="age"
-                      value={addFriend.age}
-                      onChange={handleChanges}
-                      label="Friend's Age"
-                      variant="outlined"
-                      color="secondary"
-                    />
-                  </Grid>
-                  <Grid item className={classes.formGridItem}>
-                    <TextField
-                      type="text"
-                      name="email"
-                      value={addFriend.email}
-                      onChange={handleChanges}
-                      label="Friend's Email"
-                      variant="outlined"
-                      color="secondary"
-                    />
-                    <Grid item className={classes.formGridItem} align="center">
-                      <Button
-                        variant="contained"
-                        color="secondary"
-                        onClick={handleSubmit}
-                        className={classes.button}
-                      >
-                        Add Friend
-                      </Button>
-                    </Grid>
-                  </Grid>
+                <Grid item className={classes.formGridItem}>
+                  <TextField
+                    type="text"
+                    name="name"
+                    value={addFriend.name}
+                    onChange={handleChanges}
+                    label="Friend's Name"
+                    variant="outlined"
+                    color="secondary"
+                    className={classes.textField}
+                  />
                 </Grid>
-              </FormControl>
-            </Grid>
+                <Grid item className={classes.formGridItem}>
+                  <TextField
+                    type="text"
+                    name="race"
+                    value={addFriend.race}
+                    onChange={handleChanges}
+                    label="Friend's Race"
+                    variant="outlined"
+                    color="secondary"
+                    className={classes.textField}
+                  />
+                </Grid>
+              </Grid>
+              <Grid
+                item
+                container
+                justify="center"
+                alignItems="center"
+                direction="row"
+              >
+                <Grid item className={classes.formGridItem}>
+                  <TextField
+                    type="text"
+                    name="weapon"
+                    value={addFriend.weapon}
+                    onChange={handleChanges}
+                    label="Friend's Favorite Weapon"
+                    variant="outlined"
+                    color="secondary"
+                    className={classes.textField}
+                  />
+                </Grid>
+                <Grid item className={classes.formGridItem}>
+                  <TextField
+                    type="text"
+                    name="occupation"
+                    value={addFriend.occupation}
+                    onChange={handleChanges}
+                    label="Friend's Occupation"
+                    variant="outlined"
+                    color="secondary"
+                    className={classes.textField}
+                  />
+                </Grid>
+              </Grid>
+              <Grid item className={classes.formGridItem} align="center">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={handleSubmit}
+                  className={classes.button}
+                >
+                  Add Friend
+                </Button>
+              </Grid>
+            </FormControl>
           </Grid>
         </Paper>
       </Grid>

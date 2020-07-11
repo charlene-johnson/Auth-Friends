@@ -2,13 +2,7 @@ import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import Loader from "react-loader-spinner";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Grid,
-  Typography,
-  Card,
-  CardContent,
-} from "@material-ui/core";
+import { Button, Grid, Typography, Card, CardContent } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 // class FriendList extends React.Component {
@@ -62,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     ...theme.typography.buttons,
     fontSize: "1.5rem",
-    marginTop: '1em'
+    marginTop: "1em",
   },
   heading: {
     color: theme.palette.common.orange,
@@ -107,12 +101,16 @@ export default function FriendList(props) {
               <Grid item className={classes.formGridItem}>
                 <Card className={classes.root}>
                   <CardContent>
-                <div className="friends" key={key}>
-                  <Typography variant="h4"> {friend.name}</Typography>
-                  <Typography variant="subtitle1">Friend's Age: {friend.age}</Typography>
-                  <Typography variant="subtitle1">Friend's Email: {friend.email}</Typography>
-                </div>
-                </CardContent>
+                    <div className="friends" key={key}>
+                      <Typography variant="h4"> {friend.name}</Typography>
+                      <Typography variant="subtitle1">
+                        Friend's Age: {friend.age}
+                      </Typography>
+                      <Typography variant="subtitle1">
+                        Friend's Email: {friend.email}
+                      </Typography>
+                    </div>
+                  </CardContent>
                 </Card>
               </Grid>
             </>

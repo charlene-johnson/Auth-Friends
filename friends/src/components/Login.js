@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -9,7 +9,7 @@ import {
   TextField,
   Grid,
   Typography,
-  Paper
+  Paper,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,16 +21,15 @@ const useStyles = makeStyles((theme) => ({
     margin: ".5em",
   },
   paper: {
-      padding: '2em',
-      height: 250,
-      color: theme.palette.common.purple
+    padding: "2em",
+    height: 250,
+    color: theme.palette.common.purple,
   },
   button: {
     ...theme.typography.buttons,
     fontSize: "1.5rem",
-    marginTop: '1em'
-  }
-  
+    marginTop: "1em",
+  },
 }));
 
 export default function Login(props) {
@@ -63,56 +62,58 @@ export default function Login(props) {
   return (
     <>
       <Grid container direction="column" justify="center" alignItems="center">
-         <Paper
-            elevation={10}
-            className={classes.paper}
-            > 
-        <Grid item className={classes.formGridItem}>
-          <Typography align="center" variant="h3">Sign In</Typography>
-        </Grid>
-        
-        <Grid item className={classes.formGridItem}>
-          <Grid
-            container
-            direction="column"
-            justify="center"
-            alignItems="center"
-          >
-            <FormControl className={classes.formControl} onSubmit={login}>
-              <Grid item container justify="center" alignItems="center">
-                <Grid item className={classes.formGridItem}>
-                  <TextField
-                    type="text"
-                    name="username"
-                    value={credentials.username}
-                    onChange={handleChanges}
-                    label="Username"
-                    variant="outlined"
-                    color="secondary"
-                    
-                  />
-                </Grid>
-                <Grid item className={classes.formGridItem}>
-                  <TextField
-                    type="password"
-                    name="password"
-                    color="secondary"
-                    value={credentials.password}
-                    onChange={handleChanges}
-                    label="Password"
-                    variant="outlined"
-                  />
-                </Grid>
-              </Grid>
-              <Grid item className={classes.formGridItem} align="center">
-                <Button variant="contained" color="secondary" onClick={login}
-                className={classes.button}>
-                  Login
-                </Button>
-              </Grid>
-            </FormControl>
+        <Paper elevation={10} className={classes.paper}>
+          <Grid item className={classes.formGridItem}>
+            <Typography align="center" variant="h3">
+              Sign In
+            </Typography>
           </Grid>
-        </Grid>
+
+          <Grid item className={classes.formGridItem}>
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="center"
+            >
+              <FormControl className={classes.formControl} onSubmit={login}>
+                <Grid item container justify="center" alignItems="center">
+                  <Grid item className={classes.formGridItem}>
+                    <TextField
+                      type="text"
+                      name="username"
+                      value={credentials.username}
+                      onChange={handleChanges}
+                      label="Username"
+                      variant="outlined"
+                      color="secondary"
+                    />
+                  </Grid>
+                  <Grid item className={classes.formGridItem}>
+                    <TextField
+                      type="password"
+                      name="password"
+                      color="secondary"
+                      value={credentials.password}
+                      onChange={handleChanges}
+                      label="Password"
+                      variant="outlined"
+                    />
+                  </Grid>
+                </Grid>
+                <Grid item className={classes.formGridItem} align="center">
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={login}
+                    className={classes.button}
+                  >
+                    Login
+                  </Button>
+                </Grid>
+              </FormControl>
+            </Grid>
+          </Grid>
         </Paper>
       </Grid>
     </>

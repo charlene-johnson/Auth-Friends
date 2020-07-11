@@ -6,7 +6,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={props => {
+      render={(props) => {
         if (token) {
           return <Component {...props} />;
         } else {

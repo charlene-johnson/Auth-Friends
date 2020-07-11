@@ -6,7 +6,7 @@ import {
   Tab,
   Tabs,
   Typography,
-  Button
+  Button,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "2em",
   },
   logoContainer: {
-    padding: 0, 
+    padding: 0,
     textTransform: "none",
     "&:hover": {
       backgroundColor: "transparent",
@@ -46,11 +46,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header({loggedIn, setLoggedIn}) {
+export default function Header({ loggedIn, setLoggedIn }) {
   const classes = useStyles();
 
   const [value, setValue] = useState(0);
- 
 
   const handleChange = (e, value) => {
     setValue(value);
@@ -71,38 +70,39 @@ export default function Header({loggedIn, setLoggedIn}) {
       <ElevationScroll>
         <AppBar position="fixed">
           <Toolbar disableGutters>
-              <Button
-                component={Link}
-                to='/'
-                disableRipple
-                onClick={() =>setValue(0)}
-                className={classes.logoContainer}>
-            <Typography variant="h1" style={{ fontFamily: "Pangolin" }}>
-              Friends
-            </Typography>
+            <Button
+              component={Link}
+              to="/"
+              disableRipple
+              onClick={() => setValue(0)}
+              className={classes.logoContainer}
+            >
+              <Typography variant="h1" style={{ fontFamily: "Pangolin" }}>
+                Friends
+              </Typography>
             </Button>
             <Tabs
               value={value}
               onChange={handleChange}
               className={classes.tabContainer}
             >
-             {loggedIn ? (
-                 <Tab
-                className={classes.tab}
-                component={Link}
-                to="/login"
-                label="Logout"
-                onClick={() => setLoggedIn(false)}
-              /> 
-             ):(
+              {loggedIn ? (
                 <Tab
-                className={classes.tab}
-                component={Link}
-                to="/login"
-                label="Login"
-              />  
-             )}  
-            )}   
+                  className={classes.tab}
+                  component={Link}
+                  to="/login"
+                  label="Logout"
+                  onClick={() => setLoggedIn(false)}
+                />
+              ) : (
+                <Tab
+                  className={classes.tab}
+                  component={Link}
+                  to="/login"
+                  label="Login"
+                />
+              )}
+              )}
             </Tabs>
           </Toolbar>
         </AppBar>

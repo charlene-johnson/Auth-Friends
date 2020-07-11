@@ -19,18 +19,16 @@ const useStyles = makeStyles((theme) => ({
     margin: ".5em",
   },
   paper: {
-      padding: '2em',
-      height: 390,
-      width: 300,
-      color: theme.palette.common.purple
+    padding: "2em",
+    height: 390,
+    width: 300,
+    color: theme.palette.common.purple,
   },
   button: {
     ...theme.typography.buttons,
-    marginTop: '1em',
-    fontSize: "1.5rem"
-    
-  }
-  
+    marginTop: "1em",
+    fontSize: "1.5rem",
+  },
 }));
 
 export default function AddFriend(props) {
@@ -53,7 +51,7 @@ export default function AddFriend(props) {
       .post("/api/friends", addFriend)
       .then((res) => {
         setAddFriend(res.data);
-        props.history.push("/friendlist")
+        props.history.push("/friendlist");
       })
       .catch((err) => console.log(err));
   };
@@ -62,10 +60,11 @@ export default function AddFriend(props) {
       <Grid container direction="column" justify="center" alignItems="center">
         <Paper elevation={10} className={classes.paper}>
           <Grid item className={classes.formGridItem}>
-          <Grid item className={classes.formGridItem}>
-            <Typography align='center'
-            variant="h3">Add Friend</Typography>
-          </Grid>
+            <Grid item className={classes.formGridItem}>
+              <Typography align="center" variant="h3">
+                Add Friend
+              </Typography>
+            </Grid>
             <Grid
               container
               direction="column"
@@ -76,8 +75,13 @@ export default function AddFriend(props) {
                 className={classes.formControl}
                 onSubmit={handleSubmit}
               >
-                <Grid item container justify="center" alignItems="center"
-                direction="column">
+                <Grid
+                  item
+                  container
+                  justify="center"
+                  alignItems="center"
+                  direction="column"
+                >
                   <Grid item className={classes.formGridItem}>
                     <TextField
                       type="text"
@@ -111,7 +115,6 @@ export default function AddFriend(props) {
                       color="secondary"
                     />
                     <Grid item className={classes.formGridItem} align="center">
-                      
                       <Button
                         variant="contained"
                         color="secondary"
@@ -120,7 +123,6 @@ export default function AddFriend(props) {
                       >
                         Add Friend
                       </Button>
-                     
                     </Grid>
                   </Grid>
                 </Grid>
